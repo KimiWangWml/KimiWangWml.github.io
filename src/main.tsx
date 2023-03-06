@@ -2,6 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
 import 'antd/dist/antd.css'
+import { Layout, Menu, Switch } from 'antd'
+const { Header, Footer, Content, Sider } = Layout
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
 const router = createBrowserRouter([
@@ -19,8 +21,25 @@ const router = createBrowserRouter([
   },
 ])
 
+const items = [
+  { label: 'home', key: 'item-1', path: '/' }, // remember to pass the key prop
+  { label: 'kimi', key: 'item-2', path: '/kimi' }, // which is required
+  {
+    label: 'sub menu',
+    key: 'submenu',
+  },
+]
+
+const onChange = (checked: boolean) => {
+  console.log(`switch to ${checked}`)
+}
+
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
+    <Header style={{ background: 'white' }}>
+      <Switch defaultChecked onChange={onChange} />
+      <Menu mode="horizontal" items={items}></Menu>
+    </Header>
     <RouterProvider router={router} />
   </React.StrictMode>
 )
