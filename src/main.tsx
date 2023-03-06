@@ -36,10 +36,6 @@ const onChange = (checked: boolean) => {
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <Header style={{ background: 'white' }}>
-      <Switch defaultChecked onChange={onChange} />
-      <Menu mode="horizontal" items={items}></Menu>
-    </Header>
-    <RouterProvider router={router} />
+    <App />
   </React.StrictMode>
 )

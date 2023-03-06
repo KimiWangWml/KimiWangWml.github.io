@@ -1,24 +1,8 @@
 import { useState } from 'react'
-import { DatePicker, Switch } from 'antd'
-import reactLogo from './assets/react.svg'
 import { Layout, Menu } from 'antd'
 const { Header, Footer, Content, Sider } = Layout
-import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: '',
-  },
-  {
-    path: '/kimi',
-    element: <div> kimi!</div>,
-  },
-  {
-    path: '/lele',
-    element: <div> lele!</div>,
-  },
-])
+import { router } from './routes'
+import { RouterProvider } from 'react-router-dom'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -42,7 +26,9 @@ function App() {
         <Menu mode="horizontal" items={items}></Menu>
       </Header>
       <Layout>
-        <Content></Content>
+        <Content>
+          <RouterProvider router={router} />
+        </Content>
       </Layout>
     </Layout>
   )
